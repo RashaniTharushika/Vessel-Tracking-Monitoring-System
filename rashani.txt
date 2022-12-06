@@ -1,2 +1,0 @@
-print(rashani')
-print('suresh')
