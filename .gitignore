@@ -520,5 +520,6 @@ fabric.properties
 # Project Specific
 Backend/.idea/
 Frontend/.idea/
+vessel-tracking/
 
 # End of https://www.toptal.com/developers/gitignore/api/react,webstorm,node,python,flask

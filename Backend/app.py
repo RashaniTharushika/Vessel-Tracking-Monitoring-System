@@ -30,7 +30,7 @@ def check_balance():
 def call_vfc():
     vfc(_FILE_PATH)
 
-    return "Test"
+    return "Success"
 
 
 # @app.route("/register")

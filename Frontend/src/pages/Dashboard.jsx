@@ -21,18 +21,20 @@ const Dashboard = () => {
     <>
     <h3 className="topic" style={{marginLeft:'500px' , marginTop: '100px'}}>Vessel Tracking & Monitoring Platform</h3><br/><br/>
     <div className="set" style={{marginLeft: '550px'}}>
+              <form action="http://127.0.0.1:5000/vfc" method="get">
                 <button className='btn bg2' type="submit">
                     Shipment Tracking
-                </button><br /><br/>
+                </button></form><br /><br/>
                 <button className='btn bg2' type="submit">
                     Single Vessel Position
                 </button><br /><br/>
                 <button className='btn bg2' type="submit">
                     Vessel Registration
                 </button><br /><br/>
+                <form action="http://127.0.0.1:5000/balance" method="get">
                 <button className='btn bg2' type="submit">
                     Credit Balance
-                </button><br/><br/>
+                </button></form><br/><br/>
                 <button onClick={logoutHandler} className="btn btn-primary text-left">Logout</button>
             </div>    
 	  <hr/>
