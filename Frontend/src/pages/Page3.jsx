@@ -1,20 +1,25 @@
 import React from "react";
 import "../App.css";
 
-const Page1 = () => {
+const Page3 = () => {
 
     return (<>
-            <h3 className="topic" style={{marginLeft: '500px', marginTop: '100px'}}>Vessel Tracking & Monitoring
+        <div>
+            <h3 className="topic text-center" style={{marginTop: '50px', fontWeight: 'bold'}}>Vessel Tracking &
+                Monitoring
                 Platform</h3><br/><br/>
-            <div className="set" style={{marginLeft: '250px'}}>
+        </div>
 
+        <div className="row">
+            <div className="col-3"></div>
+            <div className="col-6">
                 <form>
                     <div class="form-group row">
                         <label for="FileUpdatedDate" class="col-4 col-form-label">File Updated Date by Logistic
                             Team</label>
                         <div class="col-8">
                             <input id="FileUpdatedDate" name="FileUpdatedDate"
-                                   placeholder="File Updated Date by Logistic Team" type="text" required="required"
+                                   placeholder="File Updated Date by Logistic Team" type="date" required="required"
                                    class="form-control"></input>
                         </div>
                     </div>
@@ -23,7 +28,7 @@ const Page1 = () => {
                             Team</label>
                         <div class="col-8">
                             <input id="RecordUpdatedDate" name="RecordUpdatedDate"
-                                   placeholder="Record Updated Date by Logistic Team" type="text" class="form-control"
+                                   placeholder="Record Updated Date by Logistic Team" type="date" class="form-control"
                                    required="required"></input>
                         </div>
                     </div>
@@ -68,7 +73,7 @@ const Page1 = () => {
                                 <option value="accontainer">AC Container</option>
                             </select>
                             <span id="CarrierHelpBlock"
-                                  class="form-text text-muted">Select Carrier Name from the List</span>
+                                  class="form-text text-muted small">Select Carrier Name from the List</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -100,7 +105,7 @@ const Page1 = () => {
                                 <option value="yes">Yes</option>
                                 <option value="no">No</option>
                             </select>
-                            <span id="NeedRegisteringHelpBlock" class="form-text text-muted">Need Registering?</span>
+                            <span id="NeedRegisteringHelpBlock" class="form-text text-muted small">Need Registering?</span>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -138,16 +143,17 @@ const Page1 = () => {
                                    class="form-control" required="required"></input>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="offset-4 col-8">
+                    <div class="form-group row justify-content-center p-4">
+                        <div>
                             <button name="submit" type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </form>
-
             </div>
-        </>);
+            <div className="col-3"></div>
+        </div>
+    </>);
 };
 
-export default Page1;
+export default Page3;
 
