@@ -1,7 +1,8 @@
 import React from "react";
 import "../App.css";
 import { useHistory } from "react-router-dom";
-
+import Footer from "../components/Footer";
+import Navbar from "../components/Header";
 
 const Dashboard = () => {
   const history = useHistory();
@@ -19,6 +20,7 @@ const Dashboard = () => {
 
   return (
     <>
+    <Navbar />
     <h3 className="topic" style={{marginLeft:'500px' , marginTop: '100px'}}>Vessel Tracking & Monitoring Platform</h3><br/><br/>
     <div className="set" style={{marginLeft: '550px'}}>
               <form action="http://127.0.0.1:5000/vfc" method="get">
@@ -38,7 +40,7 @@ const Dashboard = () => {
                 <button onClick={logoutHandler} className="btn btn-primary text-left">Logout</button>
             </div>    
 	  <hr/>
-      
+    <Footer /> 
     </>
   );
 };
