@@ -163,6 +163,8 @@ def registering(FILE_PATH):
     register = df_master.loc[(df_master['Need Registering Yes/No?'] == 'Yes')]
     register = register.reset_index(drop=True)
 
+    register = register.loc[register['MBL NO'] != 'MBL NOT GENERATED']
+
     register2 = pd.merge(register, df_register, on=['MBL NO'], how="outer", indicator=True)
     register2 = register2[register2['_merge'] == 'left_only']
 
@@ -273,4 +275,6 @@ def registering(FILE_PATH):
     df_error_log.to_excel(f"{FILE_PATH}/API Output Files/Error Log.xlsx", index=False)
 
     return registered
-# registering()
+
+
+registering(r"C:\Users\ASUS\MAS Holdings (Pvt) Ltd\Logistics DA Project - Documents\General")
