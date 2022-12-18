@@ -42,7 +42,7 @@ def credit_balance(FILE_PATH):
             
             df.to_excel(f"{FILE_PATH}/API Output Files/Credit Balance.xlsx", index=False)
 
-            return balance
+            return balance, "Success", None
             
         else: 
                        
@@ -63,6 +63,7 @@ def credit_balance(FILE_PATH):
             df_error_log.to_excel(f"{FILE_PATH}/API Output Files/Error Log.xlsx", index=False)
            
             # raise ValueError('SERVICE KEY NOT FOUND')
+            return None, "Failed", error_response_dict
 
     except Exception as e:
         pass

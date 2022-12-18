@@ -277,4 +277,4 @@ def registering(FILE_PATH):
     return registered
 
 
-registering(r"C:\Users\ASUS\MAS Holdings (Pvt) Ltd\Logistics DA Project - Documents\General")
+# registering(r"C:\Users\ASUS\MAS Holdings (Pvt) Ltd\Logistics DA Project - Documents\General")
