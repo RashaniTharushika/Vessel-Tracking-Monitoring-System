@@ -181,6 +181,8 @@ def registering(FILE_PATH):
 
             vessel_name = register2.iloc[i, 3]
 
+            voyage = register2.iloc[i, 12]
+
             print(mbl_number)
             # check whether not filled (Null) or selected 'Not Found' option
             if pd.isnull(carrier_name) or carrier_name == 'Not Found':
@@ -257,7 +259,7 @@ def registering(FILE_PATH):
                     print(response_VFC)
                     shipmentId = response_VFC['subscription']['shipmentId']
 
-                    new_row = {'MBL NO': mbl_number, 'Shipment ID': shipmentId, 'Vessel Name': vessel_name, 'Registered date time': datetime.now()}
+                    new_row = {'MBL NO': mbl_number, 'Shipment ID': shipmentId, 'Vessel Name': vessel_name, 'Voyage': voyage, 'Registered date time': datetime.now()}
                     # append row to the dataframe
                     df_register = df_register.append(new_row, ignore_index=True)
                     df_register.to_excel(f"{FILE_PATH}/Master file - Register info/MT register.xlsx", index=False)
