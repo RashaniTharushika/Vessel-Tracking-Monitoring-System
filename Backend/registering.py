@@ -179,21 +179,23 @@ def registering(FILE_PATH):
             # mbl_number
             mbl_number = register2.iloc[i, 2]
 
+            vessel_name = register2.iloc[i, 3]
+
             print(mbl_number)
             # check whether not filled (Null) or selected 'Not Found' option
             if pd.isnull(carrier_name) or carrier_name == 'Not Found':
                 print(
                     "Carrier name is not filled(empty) or User has not update the carrier name. Please select a carrier")
-                break
+                pass
 
             elif pd.isnull(mbl_number) or mbl_number == 'Not Found':
                 print(
                     "MBL number is not filled(empty) or User has not update the MBL number. Please input the MBL number")
-                break
+                pass
 
             elif carrier_name not in scac_codes:
                 print("Not supported SCAC code. Please check the carrier name")
-                break
+                pass
 
 
             else:
@@ -255,7 +257,7 @@ def registering(FILE_PATH):
                     print(response_VFC)
                     shipmentId = response_VFC['subscription']['shipmentId']
 
-                    new_row = {'MBL NO': mbl_number, 'Shipment ID': shipmentId, 'Registered date time': datetime.now()}
+                    new_row = {'MBL NO': mbl_number, 'Shipment ID': shipmentId, 'Vessel Name': vessel_name, 'Registered date time': datetime.now()}
                     # append row to the dataframe
                     df_register = df_register.append(new_row, ignore_index=True)
                     df_register.to_excel(f"{FILE_PATH}/Master file - Register info/MT register.xlsx", index=False)
