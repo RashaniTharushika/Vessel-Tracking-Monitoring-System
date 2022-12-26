@@ -75,6 +75,8 @@ def vfc(FILE_PATH):
     print(df_master)
     #  print(type(df_master['Shipment ID']))
 
+    df_register.drop(['Vessel Name', 'Voyage'], axis=1, inplace=True)
+
     df_master.index = range(len(df_master.index))
     df_master_1 = pd.merge(df_master, df_register, on='MBL NO', how='inner')
 
@@ -405,4 +407,4 @@ def vfc(FILE_PATH):
     return tracked_ships
 
 # if __name__ == "__main__":
-#     vfc("C:/Users/Hnxan/MAS Holdings (Pvt) Ltd/Logistics DA Project - General")
+# vfc(r"C:\Users\ASUS\MAS Holdings (Pvt) Ltd\Logistics DA Project - Documents\General")
