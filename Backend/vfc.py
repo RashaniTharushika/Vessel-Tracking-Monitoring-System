@@ -69,6 +69,7 @@ def vfc(FILE_PATH):
     df_master = df_master.loc[df_master['Need Registering Yes/No?'] == 'Yes']
 
     df_master = df_master[~pd.isnull(df_master['MBL NO'])]
+    df_master = df_master[~pd.isnull(df_master['Carrier'])]
 
     df_register = pd.read_excel(FILE_PATH_register, sheet_name=SHEET_NAME_register)
     df_error_log = pd.read_excel(FILE_PATH_errorlog, sheet_name=SHEET_NAME_errorlog)
