@@ -1,13 +1,14 @@
 import os
 
 from dotenv import load_dotenv
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 from credit_balance import credit_balance
 from registering import registering
 from vfc import vfc
 from single_vessel_positioning import single_vessel_position
+from helper import input_form_data
 
 load_dotenv()
 
@@ -69,6 +70,25 @@ def svp():
         'status': status,
         'vessel_position': vessel_position,
         'cost': str(vessel_position * 7)
+    }
+    return jsonify(response)
+
+
+@app.route("/form", methods=['POST'])
+def getForm():
+    if request.get_json() is not None:
+        input_params = request.get_json()
+        status, rows = input_form_data(input_params, _FILE_PATH)
+
+        response = {
+            'status': status,
+            'rows': rows
+        }
+
+        return jsonify(response)
+
+    response = {
+        'status': "Failed"
     }
     return jsonify(response)
 
