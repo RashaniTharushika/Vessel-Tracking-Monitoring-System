@@ -11,7 +11,7 @@
   background-image: url(./images/ship-bg.jpg);
   background-size: 100%;
   width: auto;
-  height: auto;
+  height: 100%;
 }
 
 .btn {

@@ -3,6 +3,7 @@ import { emailValidator, passwordValidator } from '../components/regexValidator'
 import { useHistory } from "react-router-dom"
 import Logo from "./../images/logo.png";
 import "../components/login.css";
+
 const Login = () => {
 	const history = useHistory()
 
@@ -82,7 +83,7 @@ const Login = () => {
 								<span>OR</span>
 							</div>
 							<div className="flex-c">
-								<button className="btn"> CONTINUE WITHOUT LOGIN</button>
+								<a href='#' className="btn"> CONTINUE WITHOUT LOGIN</a>
 							</div>
 							{/* <div className="flex-col-c p-t-155">
                 <span className="txt1 p-b-17">Or Sign Up Using</span>
