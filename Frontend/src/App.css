@@ -7,6 +7,19 @@
   pointer-events: none;
 }
 
+.main-content {
+  background-image: url(./images/ship-bg.jpg);
+  background-size: 100%;
+  width: auto;
+  height: auto;
+}
+
+.btn {
+  width: 250px;
+  margin-left: 50px;
+  color: #eee;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -32,6 +45,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Header";
 import axios from "axios";
@@ -64,31 +64,35 @@ const Dashboard = () => {
     };
 
     return (<>
-            <Navbar/>
-            <h3 className="topic" style={{marginLeft: '500px', marginTop: '100px'}}>Vessel Tracking & Monitoring
-                Platform</h3><br/><br/>
-            <div className="set" style={{marginLeft: '550px'}}>
-                <button id="btnShipmentTracking" onClick={vfcHandler} className='btn bg2' type="submit">
+    <div className="main-content">
+        <Navbar />
+        
+            <h3 className="topic" style={{ marginLeft: '500px', marginTop: '100px', color: '#eee', fontWeight:'bold' }}>Vessel Tracking & Monitoring
+                Platform</h3><br /><br />
+            <div className="set" style={{ marginLeft: '550px' }}>
+                <button id="btnShipmentTracking" onClick={vfcHandler} className='btn bg2 px-5' type="submit">
                     Shipment Tracking
                 </button>
-                <br/><br/>
+                <br /><br />
                 <button id="btnSVP" onClick={svpHandler} className='btn bg2' type="submit">
                     Single Vessel Position
                 </button>
-                <br/><br/>
+                <br /><br />
                 <button id="btnRegister" onClick={registerHandler} className='btn bg2' type="submit">
                     Vessel Registration
                 </button>
-                <br/><br/>
+                <br /><br />
                 <button id="btnBalance" onClick={balanceHandler} className='btn bg2' type="button">
                     Credit Balance
                 </button>
-                <br/><br/>
-                <button onClick={logoutHandler} className="btn btn-primary text-left">Logout</button>
+                <br /><br />
+                <button onClick={logoutHandler} className="btn btn-primary text-center">Logout</button>
             </div>
-            <hr/>
-            <Footer/>
-        </>);
+            <hr />
+       
+        <Footer />
+        </div>
+    </>);
 };
 
 export default Dashboard;

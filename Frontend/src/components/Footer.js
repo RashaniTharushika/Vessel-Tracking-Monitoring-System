@@ -32,7 +32,7 @@ function Footer() {
           <div className="content">
             <div className="phone">
               <FaPhone />
-              <span className="text"> +089-765432100</span>
+              <span className="text">  0114 796 444</span>
             </div>
             <div className="social">
               <a href="https://www.facebook.com/MASHoldingsSL"><FaFacebook  color="#3b5998" size={20}/></a>
