@@ -6,6 +6,13 @@ import axios from "axios";
 
 const Page3 = () => {
 
+    const emptyInputField = {
+        index: 0,
+        name: '',
+    }
+
+    const [inputFields, setInputFields] = useState([emptyInputField])
+
     const [FileUpdatedDate, setFileUpdatedDate] = useState();
     const [RecordUpdatedDate, setRecordUpdatedDate] = useState();
     const [MBL, setMBL] = useState();
@@ -18,14 +25,25 @@ const Page3 = () => {
     const [TrackingCommonMBL, setTrackingCommonMBL] = useState();
     const [MMSI, setMMSI] = useState();
     const [Voyage, setVoyage] = useState();
-    const [HBL, setHBL] = useState();
     const [ShipmentType, setShipmentType] = useState();
 
 
     const submitForm = (e) => {
         e.preventDefault()
 
-        if (!FileUpdatedDate || !RecordUpdatedDate || !MBL || !VESSEL || !Carrier || !pol || !etd || !etaToCMB || !NeedRegistering || !TrackingCommonMBL || !MMSI || !Voyage || !HBL || !ShipmentType) {
+        // without empty fields
+        const filteredInputFields = inputFields.filter(
+            (inputField) => inputField.name !== ''
+        )
+
+        // only string fields
+        const HBL = filteredInputFields.map(
+            (inputField) => inputField.name
+        )
+
+        console.log(HBL)
+
+        if (!FileUpdatedDate || !RecordUpdatedDate || !MBL || !VESSEL || !Carrier || !pol || !etd || !etaToCMB || !NeedRegistering || !TrackingCommonMBL || !MMSI || !Voyage || !HBL.length > 0 || !ShipmentType) {
             alert("Please fill all the fields");
             return;
         }
@@ -213,11 +231,51 @@ const Page3 = () => {
                     <div class="form-group row">
                         <label for="HBL" class="col-4 col-form-label">HBL</label>
                         <div class="col-8">
-                            <TextInput id="HBL" name="HBL" placeholder="HBL" type="text" class="form-control"
-                                       value={HBL} onChange={(e) => {
-                                setHBL(e.target.value)
-                            }}
-                                       required="required"/>
+                            {/*<TextInput id="HBL" name="HBL" placeholder="HBL" type="text" class="form-control"*/}
+                            {/*           value={HBL} onChange={(e) => {*/}
+                            {/*    setHBL(e.target.value)*/}
+                            {/*}}*/}
+                            {/*           required="required"/>*/}
+                            {inputFields.map((inputField, index) => (
+                                <div key={index} >
+                                    <TextInput
+                                        value={inputField.name}
+                                        onChange={(event) => {
+                                            const values = [...inputFields]
+                                            values[index].name = event.target.value
+                                            setInputFields(values)
+                                        }}
+                                        placeholder={"HBL " + (index + 1)}
+                                        class="form-control col-10"
+                                    />
+                                    <button class="btn btn-danger col-1 pl-2"
+                                        onClick={() =>
+                                            setInputFields(inputFields.filter((_, i) => i !== index))
+                                        }
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                             fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"></path>
+                                            <path fill-rule="evenodd"
+                                                  d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            ))}
+                            <button
+                                onClick={() =>
+                                    setInputFields([
+                                        ...inputFields,
+                                        {
+                                            index: inputFields.length,
+                                            name: '',
+                                        },
+                                    ])
+                                }
+                            >
+                                Add
+                            </button>
                         </div>
                     </div>
                     <div class="form-group row">

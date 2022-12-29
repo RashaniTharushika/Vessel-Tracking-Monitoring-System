@@ -19,6 +19,7 @@ def input_form_data(params, FILE_PATH):
     HBL = params['HBL']
     ShipmentType = params['ShipmentType']
 
+
     FileUpdatedDate = datetime.fromisoformat(FileUpdatedDate) + timedelta(days=1)
     RecordUpdatedDate = datetime.fromisoformat(RecordUpdatedDate) + timedelta(days=1)
     etd = datetime.fromisoformat(etd) + timedelta(days=1)
@@ -41,7 +42,7 @@ def input_form_data(params, FILE_PATH):
 
 
 
-    for hbl in HBL.split(','):
+    for hbl in HBL:
         data = {
             'File Updated Date by Logistic Team': FileUpdatedDate,
             'Record Updated Date by Logistic Team': RecordUpdatedDate,

@@ -19,7 +19,7 @@ function App() {
                 <Route exact path="/Page1" component={Page1}/>
                 <Route exact path="/Page3" component={Page3}/>
                 <Route exact path="/PowerBI" component={PowerBI}/>
-                
+
                 <Route exact path="/Dashboard2" component={Dashboard2}/>
             </BrowserRouter>
         </div>
