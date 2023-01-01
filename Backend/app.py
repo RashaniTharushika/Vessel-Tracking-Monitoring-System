@@ -45,11 +45,12 @@ def call_vfc():
     return jsonify(response)
 
 
-@app.route("/register")
+@app.route("/register", methods=['POST'])
 def register():
 
     # TODO: error handling
-    no_of_reg = registering(_FILE_PATH)
+    input_params = request.get_json()
+    no_of_reg = registering(_FILE_PATH, input_params)
     status = "Success"
 
     response = {

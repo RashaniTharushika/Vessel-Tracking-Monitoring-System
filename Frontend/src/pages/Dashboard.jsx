@@ -8,6 +8,9 @@ import axios from "axios";
 const Dashboard = () => {
     const history = useHistory();
     const [logout, setLogout] = React.useState(false);
+    const plant = localStorage.getItem('plant')
+
+    console.log(plant)
 
     React.useEffect(() => {
         if (!localStorage.getItem("auth")) history.push("/login");
@@ -16,6 +19,7 @@ const Dashboard = () => {
     const logoutHandler = (e) => {
         e.preventDefault();
         localStorage.removeItem("auth");
+        localStorage.removeItem("plant");
         setLogout(true);
     };
 
@@ -32,7 +36,9 @@ const Dashboard = () => {
 
     // TODO: Need to modify code
     const registerHandler = (e) => {
-        axios.get('http://localhost:5000/register').then(res => {
+        axios.post('http://localhost:5000/register', {
+            plant
+        }).then(res => {
             if (res.data.status === "Success") {
                 alert(res.data.no_of_regs + " new vessels have been registered ! \n" + res.data.cost + " credits reduced")
             } else {

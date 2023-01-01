@@ -16,6 +16,7 @@ const Dashboard2 = () => {
     const logoutHandler = (e) => {
         e.preventDefault();
         localStorage.removeItem("auth");
+        localStorage.removeItem("plant");
         setLogout(true);
     };
 
