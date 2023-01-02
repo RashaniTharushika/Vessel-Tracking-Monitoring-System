@@ -6,10 +6,6 @@ const PowerBI = () => {
 
     const plant = localStorage.getItem('plant')
 
-    React.useEffect(() => {
-        if (!localStorage.getItem("plant")) history.push("/login");
-    }, [logout]);
-
     if (plant === "INTIMATES") {
         return (
             <>
