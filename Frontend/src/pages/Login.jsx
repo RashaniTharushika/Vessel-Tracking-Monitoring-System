@@ -32,10 +32,14 @@ const Login = () => {
         // setsuccessMessage('Successfully Validated');
         // if (input.email !== 'admin@gmail.com' || input.password !== 'Password@1') return seterrorMessage('Invalid email or password');
 
-        if (input.email === 'admin@gmail.com' && input.password === 'Password@1') {
+        if (input.email === 'intimates@gmail.com' && input.password === 'Password@1') {
             localStorage.setItem('plant', 'INTIMATES')
         } else if (input.email === 'masactive@gmail.com' && input.password === 'Active@1') {
             localStorage.setItem('plant', 'ACTIVE')
+        } else if (input.email === 'bodyline@gmail.com' && input.password === 'Bodyline@1') {
+            localStorage.setItem('plant', 'Bodyline')
+        } else if (input.email === 'maskreeda@gmail.com' && input.password === 'Kreeda@1') {
+            localStorage.setItem('plant', 'Kreeda')
         } else {
             return seterrorMessage('Invalid email or password')
         }

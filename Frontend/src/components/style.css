@@ -210,6 +210,29 @@ nav {
 	text-decoration: underline;
 }
 
+
+/*page4*/
+.btn4{
+	background-color: var(--mainColor);
+	color: #eee;
+	width: 250px;
+	margin-left: -450px;
+	padding: 5px;
+	border-radius: 5px;
+}
+.btn4:hover{
+	background-color: var(--mainColorLight);
+}
+.btn4r{
+	padding: 15px 25px;
+	border-radius: 5px;
+	margin-left: 900px;
+	color: #eee;
+}
+.btn4r:hover{
+	background-color: var(--mainColorLight);
+	color: #eee;
+}
 @media screen and (max-width: 900px) {
 	.main-footer {
 		position: relative;
