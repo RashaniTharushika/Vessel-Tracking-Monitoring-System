@@ -33,7 +33,8 @@ SINGLE_VESSEL_POSITIONING_API_KEY = 'fa707edb08ff303c0d77f6a8cc40b239401c5a49'
 def single_vessel_position(FILE_PATH, params):
 
     plant = params['plant']
-    FILE_PATH = FILE_PATH + "/" + plant
+    if plant != 'INTIMATES':
+        FILE_PATH = FILE_PATH + "/" + plant
 
     FILEPATH = f"{FILE_PATH}/Master file - Input file/Master File.xlsx"
     SHEET_NAME = 'Master File_To be Daily updated'

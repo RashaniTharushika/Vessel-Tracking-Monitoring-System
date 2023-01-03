@@ -4,6 +4,11 @@ from datetime import datetime,timedelta, date
 
 
 def input_form_data(params, FILE_PATH):
+
+    plant = params['plant']
+    if plant != 'INTIMATES':
+        FILE_PATH = FILE_PATH + "/" + plant
+
     FileUpdatedDate = params['FileUpdatedDate']
     RecordUpdatedDate = params['RecordUpdatedDate']
     MBL = params['MBL']
@@ -75,11 +80,14 @@ def input_form_data(params, FILE_PATH):
 def get_view(params, FILE_PATH):
 
     plant = params['plant']
-    FILE_PATH = FILE_PATH + "/" + plant
+    if plant != 'INTIMATES':
+        FILE_PATH = FILE_PATH + "/" + plant
 
     FILE_PATH_master = f"{FILE_PATH}/Master file - Input file/Master File.xlsx"
     SHEET_NAME_master = 'Master File_To be Daily updated'
 
     df_master = pd.read_excel(FILE_PATH_master, sheet_name=SHEET_NAME_master, engine="openpyxl")
 
-    return df_master.to_json(orient='records')
+    data = df_master.to_json(orient = 'records')
+
+    return data

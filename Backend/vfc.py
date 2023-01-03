@@ -52,7 +52,8 @@ def vfc(FILE_PATH, params):
     # output_file = "C:/Users/sachinkaa/OneDrive - MAS Holdings (Pvt) Ltd (1)/General/API Output Files - Documents/General/API Output Files"
 
     plant = params['plant']
-    FILE_PATH = FILE_PATH + "/" + plant
+    if plant != 'INTIMATES':
+        FILE_PATH = FILE_PATH + "/" + plant
 
     FILE_PATH_master = f"{FILE_PATH}/Master file - Input file/Master File.xlsx"
     SHEET_NAME_master = 'Master File_To be Daily updated'

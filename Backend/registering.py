@@ -145,7 +145,9 @@ def registering(FILE_PATH, params):
     SHEET_NAME_All_register = 'Sheet1'
 
     PLANT = params['plant']
-    FILE_PATH = FILE_PATH + "/" + PLANT
+
+    if PLANT != 'INTIMATES':
+        FILE_PATH = FILE_PATH + "/" + PLANT
 
     FILE_PATH_master = f"{FILE_PATH}/Master file - Input file/Master File.xlsx"
     SHEET_NAME_master = 'Master File_To be Daily updated'

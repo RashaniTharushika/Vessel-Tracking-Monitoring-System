@@ -9,7 +9,8 @@ load_dotenv()
 def credit_balance(FILE_PATH, params):
 
     plant = params['plant']
-    FILE_PATH = FILE_PATH + "/" + plant
+    if plant != 'INTIMATES':
+        FILE_PATH = FILE_PATH + "/" + plant
 
     CREDITS_BALANCE_API_KEY = '6d41e361d93ce1e92e5caea93036a3ed76c1c8c0'
     now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
