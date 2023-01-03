@@ -75,16 +75,16 @@ const Dashboard = () => {
         });
     };
 
-        // TODO: Need to modify code
-        const inputHandler = (e) => {
-            axios.get('http://localhost:5000/input').then(res => {
-                if (res.data.status === "Success") {
-                    alert(res.data.no_of_regs + " new vessels have been entered !")
-                } else {
-                    alert("Failed")
-                }
-            });
-        };
+        // // TODO: Need to modify code
+        // const inputHandler = (e) => {
+        //     axios.get('http://localhost:5000/input').then(res => {
+        //         if (res.data.status === "Success") {
+        //             alert(res.data.no_of_regs + " new vessels have been entered !")
+        //         } else {
+        //             alert("Failed")
+        //         }
+        //     });
+        // };
 
     return (<>
     <div className="main-content">
@@ -100,10 +100,10 @@ const Dashboard = () => {
                 <button id="btnSVP" onClick={svpHandler} className='btn bg2' type="submit">
                     Single Vessel Position
                 </button>
-                <br /><br />
+                {/* <br /><br />
                 <button id="btnInput" onClick={inputHandler} className='btn bg2' type="submit">
                     Input Vessel Details
-                </button>
+                </button> */}
                 <br /><br />
                 <button id="btnRegister" onClick={registerHandler} className='btn bg2' type="submit">
                     Vessel Registration
