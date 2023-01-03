@@ -6,7 +6,9 @@ import Dashboard from "./pages/Dashboard"
 import Page2 from "./pages/Page2"
 import Page1 from "./pages/Page1"
 import Page3 from "./pages/Page3"
+import Page4 from "./pages/Page4"
 import Dashboard2 from "./pages/Dashboard2"
+import PowerBI from "./pages/PowerBI"
 
 function App() {
     return (
@@ -20,7 +22,7 @@ function App() {
                 <Route exact path="/PowerBI" component={PowerBI}/>
 
                 <Route exact path="/Dashboard2" component={Dashboard2}/>
-                <Route exact path="/page4" component={page4}/>
+                <Route exact path="/Page4" component={Page4}/>
             </BrowserRouter>
         </div>
     );
