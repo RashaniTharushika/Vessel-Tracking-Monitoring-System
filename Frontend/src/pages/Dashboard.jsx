@@ -25,7 +25,9 @@ const Dashboard = () => {
 
     // TODO: Create modal instead of alert boxes for showing values
     const balanceHandler = (e) => {
-        axios.get('http://localhost:5000/balance').then(res => {
+        axios.post('http://localhost:5000/balance', {
+            plant
+        }).then(res => {
             if (res.data.status === "Success") {
                 alert("Credit balance is " + res.data.balance)
             } else {
@@ -49,7 +51,9 @@ const Dashboard = () => {
 
     // TODO: Need to modify code
     const vfcHandler = (e) => {
-        axios.get('http://localhost:5000/vfc').then(res => {
+        axios.post('http://localhost:5000/vfc', {
+            plant
+        }).then(res => {
             if (res.data.status === "Success") {
                 alert("Number of vessels tracked : " + res.data.tracked)
             } else {
@@ -60,7 +64,9 @@ const Dashboard = () => {
 
     // TODO: Need to modify code
     const svpHandler = (e) => {
-        axios.get('http://localhost:5000/svp').then(res => {
+        axios.post('http://localhost:5000/svp', {
+            plant
+        }).then(res => {
             if (res.data.status === "Success") {
                 alert("Number of vessels tracked before MBL generated : " + res.data.vessel_position + "\n" + res.data.cost + " credits reduced")
             } else {

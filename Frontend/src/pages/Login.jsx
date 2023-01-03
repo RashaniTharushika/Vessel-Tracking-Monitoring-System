@@ -88,12 +88,12 @@ const Login = () => {
                                     <button className="login100-form-btn">LOGIN AS ADMIN</button>
                                 </div>
                             </div>
-                            <div className="txt1">
-                                <span>OR</span>
-                            </div>
-                            <div className="flex-c">
-                                <a href='#' className="btn"> CONTINUE WITHOUT LOGIN</a>
-                            </div>
+                            {/*<div className="txt1">*/}
+                            {/*    <span>OR</span>*/}
+                            {/*</div>*/}
+                            {/*<div className="flex-c">*/}
+                            {/*    <a href='/Dashboard2' className="btn"> CONTINUE WITHOUT LOGIN</a>*/}
+                            {/*</div>*/}
                             {/* <div className="flex-col-c p-t-155">
                 <span className="txt1 p-b-17">Or Sign Up Using</span>
                 <a href="#" className="txt2">

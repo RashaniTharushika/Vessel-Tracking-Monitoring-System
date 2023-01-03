@@ -144,8 +144,7 @@ def registering(FILE_PATH, params):
     FILE_PATH_All_register = f'{FILE_PATH}/All - register.xlsx'
     SHEET_NAME_All_register = 'Sheet1'
 
-    # PLANT = params['plant']
-    PLANT = 'INTIMATES'
+    PLANT = params['plant']
     FILE_PATH = FILE_PATH + "/" + PLANT
 
     FILE_PATH_master = f"{FILE_PATH}/Master file - Input file/Master File.xlsx"

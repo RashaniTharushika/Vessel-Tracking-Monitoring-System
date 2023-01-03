@@ -8,7 +8,7 @@ from credit_balance import credit_balance
 from registering import registering
 from vfc import vfc
 from single_vessel_positioning import single_vessel_position
-from helper import input_form_data
+from helper import input_form_data, get_view
 
 load_dotenv()
 
@@ -20,9 +20,10 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route("/balance")
+@app.route("/balance", methods=['POST'])
 def check_balance():
-    balance, status, error = credit_balance(_FILE_PATH)
+    input_params = request.get_json()
+    balance, status, error = credit_balance(_FILE_PATH, input_params)
 
     response = {
         'balance': balance,
@@ -32,9 +33,10 @@ def check_balance():
     return jsonify(response)
 
 
-@app.route("/vfc")
+@app.route("/vfc", methods=['POST'])
 def call_vfc():
-    tracked = vfc(_FILE_PATH)
+    input_params = request.get_json()
+    tracked = vfc(_FILE_PATH, input_params)
     status = "Success"
 
     # TODO: error handling
@@ -61,10 +63,11 @@ def register():
     return jsonify(response)
 
 
-@app.route("/svp")
+@app.route("/svp", methods=['POST'])
 def svp():
     # TODO: error handling
-    vessel_position = single_vessel_position(_FILE_PATH)
+    input_params = request.get_json()
+    vessel_position = single_vessel_position(_FILE_PATH, input_params)
     status = "Success"
 
     response = {
@@ -90,6 +93,18 @@ def getForm():
 
     response = {
         'status': "Failed"
+    }
+    return jsonify(response)
+
+
+@app.route("/view", methods=['POST'])
+def get_view_data():
+    input_params = request.get_json()
+    data = get_view(input_params, _FILE_PATH)
+
+    response = {
+        'status': "Success",
+        'data': data
     }
     return jsonify(response)
 
