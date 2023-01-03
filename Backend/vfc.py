@@ -32,7 +32,7 @@ requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 #     writer.close()
 
 
-def vfc(FILE_PATH):
+def vfc(FILE_PATH, params):
     Shipment_status_dict = {1: 'Booked',
                             2: 'Collected from Shipper',
                             3: 'Not arrived at Port of Load',
@@ -50,6 +50,9 @@ def vfc(FILE_PATH):
 
     # input_file = "C:/Users/sachinkaa/OneDrive - MAS Holdings (Pvt) Ltd (1)/General/Master file - Input file - Documents/General"
     # output_file = "C:/Users/sachinkaa/OneDrive - MAS Holdings (Pvt) Ltd (1)/General/API Output Files - Documents/General/API Output Files"
+
+    plant = params['plant']
+    FILE_PATH = FILE_PATH + "/" + plant
 
     FILE_PATH_master = f"{FILE_PATH}/Master file - Input file/Master File.xlsx"
     SHEET_NAME_master = 'Master File_To be Daily updated'

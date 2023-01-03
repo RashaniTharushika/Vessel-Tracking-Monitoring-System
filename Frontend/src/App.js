@@ -7,7 +7,6 @@ import Page2 from "./pages/Page2"
 import Page1 from "./pages/Page1"
 import Page3 from "./pages/Page3"
 import Dashboard2 from "./pages/Dashboard2"
-import page4 from "./pages/page4";
 
 function App() {
     return (
@@ -18,7 +17,8 @@ function App() {
                 <Route exact path="/Page2" component={Page2}/>
                 <Route exact path="/Page1" component={Page1}/>
                 <Route exact path="/Page3" component={Page3}/>
-                
+                <Route exact path="/PowerBI" component={PowerBI}/>
+
                 <Route exact path="/Dashboard2" component={Dashboard2}/>
                 <Route exact path="/page4" component={page4}/>
             </BrowserRouter>

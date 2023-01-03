@@ -8,6 +8,9 @@ import axios from "axios";
 const Dashboard = () => {
     const history = useHistory();
     const [logout, setLogout] = React.useState(false);
+    const plant = localStorage.getItem('plant')
+
+    console.log(plant)
 
     React.useEffect(() => {
         if (!localStorage.getItem("auth")) history.push("/login");
@@ -16,12 +19,15 @@ const Dashboard = () => {
     const logoutHandler = (e) => {
         e.preventDefault();
         localStorage.removeItem("auth");
+        localStorage.removeItem("plant");
         setLogout(true);
     };
 
     // TODO: Create modal instead of alert boxes for showing values
     const balanceHandler = (e) => {
-        axios.get('http://localhost:5000/balance').then(res => {
+        axios.post('http://localhost:5000/balance', {
+            plant
+        }).then(res => {
             if (res.data.status === "Success") {
                 alert("Credit balance is " + res.data.balance)
             } else {
@@ -32,7 +38,9 @@ const Dashboard = () => {
 
     // TODO: Need to modify code
     const registerHandler = (e) => {
-        axios.get('http://localhost:5000/register').then(res => {
+        axios.post('http://localhost:5000/register', {
+            plant
+        }).then(res => {
             if (res.data.status === "Success") {
                 alert(res.data.no_of_regs + " new vessels have been registered ! \n" + res.data.cost + " credits reduced")
             } else {
@@ -43,7 +51,9 @@ const Dashboard = () => {
 
     // TODO: Need to modify code
     const vfcHandler = (e) => {
-        axios.get('http://localhost:5000/vfc').then(res => {
+        axios.post('http://localhost:5000/vfc', {
+            plant
+        }).then(res => {
             if (res.data.status === "Success") {
                 alert("Number of vessels tracked : " + res.data.tracked)
             } else {
@@ -54,7 +64,9 @@ const Dashboard = () => {
 
     // TODO: Need to modify code
     const svpHandler = (e) => {
-        axios.get('http://localhost:5000/svp').then(res => {
+        axios.post('http://localhost:5000/svp', {
+            plant
+        }).then(res => {
             if (res.data.status === "Success") {
                 alert("Number of vessels tracked before MBL generated : " + res.data.vessel_position + "\n" + res.data.cost + " credits reduced")
             } else {
@@ -62,6 +74,17 @@ const Dashboard = () => {
             }
         });
     };
+
+        // // TODO: Need to modify code
+        // const inputHandler = (e) => {
+        //     axios.get('http://localhost:5000/input').then(res => {
+        //         if (res.data.status === "Success") {
+        //             alert(res.data.no_of_regs + " new vessels have been entered !")
+        //         } else {
+        //             alert("Failed")
+        //         }
+        //     });
+        // };
 
     return (<>
     <div className="main-content">
@@ -77,6 +100,10 @@ const Dashboard = () => {
                 <button id="btnSVP" onClick={svpHandler} className='btn bg2' type="submit">
                     Single Vessel Position
                 </button>
+                {/* <br /><br />
+                <button id="btnInput" onClick={inputHandler} className='btn bg2' type="submit">
+                    Input Vessel Details
+                </button> */}
                 <br /><br />
                 <button id="btnRegister" onClick={registerHandler} className='btn bg2' type="submit">
                     Vessel Registration

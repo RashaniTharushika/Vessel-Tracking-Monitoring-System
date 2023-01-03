@@ -139,7 +139,14 @@ scac_codes = {
 }
 VFC_API_KEY = os.getenv("VFC_API_KEY")
 
-def registering(FILE_PATH):
+def registering(FILE_PATH, params):
+
+    FILE_PATH_All_register = f'{FILE_PATH}/All - register.xlsx'
+    SHEET_NAME_All_register = 'Sheet1'
+
+    PLANT = params['plant']
+    FILE_PATH = FILE_PATH + "/" + PLANT
+
     FILE_PATH_master = f"{FILE_PATH}/Master file - Input file/Master File.xlsx"
     SHEET_NAME_master = 'Master File_To be Daily updated'
 
@@ -152,10 +159,12 @@ def registering(FILE_PATH):
     tdType = "BL"
     now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
+    reg_df = pd.read_excel(FILE_PATH_All_register, sheet_name=SHEET_NAME_All_register, engine="openpyxl")
+
     df_master = pd.read_excel(FILE_PATH_master, sheet_name=SHEET_NAME_master, engine="openpyxl")
 
     df_register = pd.read_excel(FILE_PATH_register, sheet_name=SHEET_NAME_register, engine="openpyxl")
-    # filter the MBL's need regitering & which has not regestered/shipment ID not generated 
+    # filter the MBL's need regitering & which has not regestered/shipment ID not generated
     # - This to be regesterd by button click
 
     df_error_log = pd.read_excel(FILE_PATH_errorlog, sheet_name=SHEET_NAME_errorlog, engine="openpyxl")
@@ -182,6 +191,14 @@ def registering(FILE_PATH):
             vessel_name = register2.iloc[i, 3]
 
             voyage = register2.iloc[i, 12]
+
+            mid_reg_df = reg_df.loc[(reg_df['Vessel Name'] == vessel_name)]
+            mid_reg_df = mid_reg_df[mid_reg_df['Voyage'] == voyage]
+
+            if len(mid_reg_df) > 0:
+                df_register = df_register.append(mid_reg_df[0], ignore_index=True)
+                df_register.to_excel(f"{FILE_PATH}/Master file - Register info/MT register.xlsx", index=False)
+                continue
 
             print(mbl_number)
             # check whether not filled (Null) or selected 'Not Found' option
@@ -264,6 +281,8 @@ def registering(FILE_PATH):
                     df_register = df_register.append(new_row, ignore_index=True)
                     df_register.to_excel(f"{FILE_PATH}/Master file - Register info/MT register.xlsx", index=False)
 
+                    reg_df = reg_df.append(new_row, ignore_index=True)
+                    reg_df.to_excel(FILE_PATH_All_register, index=False)
 
         except ConnectionError as e:
             message = str(e)
@@ -281,4 +300,4 @@ def registering(FILE_PATH):
     return registered
 
 
-# registering(r"C:\Users\ASUS\MAS Holdings (Pvt) Ltd\Logistics DA Project - Documents\General")
+# registering(r"C:\Users\ASUS\MAS Holdings (Pvt) Ltd\Logistics DA Project - Documents\General", None)
