@@ -14,6 +14,19 @@
   height: 100%;
 }
 
+
+.main-content1{
+  background: hsla(217, 61%, 75%, 1);
+
+  background: linear-gradient(90deg, hsla(217, 61%, 75%, 1) 0%, hsla(180, 40%, 98%, 1) 100%);
+
+  background: -moz-linear-gradient(90deg, hsla(217, 61%, 75%, 1) 0%, hsla(180, 40%, 98%, 1) 100%);
+
+  background: -webkit-linear-gradient(90deg, hsla(217, 61%, 75%, 1) 0%, hsla(180, 40%, 98%, 1) 100%);
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#98B6E6", endColorstr="#F8FCFC", GradientType=1 );
+}
+
 .btn {
   width: 250px;
   margin-left: 50px;
