@@ -3,6 +3,8 @@ import {Select, Button, TextInput} from "@mantine/core";
 import {DatePicker} from "@mantine/dates";
 import "../App.css";
 import axios from "axios";
+import Navbar from "../components/Header";
+import Footer from "../components/Footer";
 
 const Page3 = () => {
 
@@ -77,6 +79,7 @@ const Page3 = () => {
     };
 
     return (<>
+    <Navbar />
         <div>
             <h3 className="topic text-center" style={{marginTop: '50px', fontWeight: 'bold'}}>Vessel Tracking &
                 Monitoring
@@ -296,6 +299,7 @@ const Page3 = () => {
                 </form>
             </div>
             <div className="col-3"></div>
+            <Footer />
         </div>
     </>);
 };
