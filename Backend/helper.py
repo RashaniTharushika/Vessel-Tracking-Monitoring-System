@@ -1,6 +1,7 @@
 import pandas as pd
 import os.path
 from datetime import datetime,timedelta, date
+import json
 
 
 def input_form_data(params, FILE_PATH):
@@ -88,9 +89,31 @@ def get_view(params, FILE_PATH):
 
     df_master = pd.read_excel(FILE_PATH_master, sheet_name=SHEET_NAME_master, engine="openpyxl")
 
-    data = df_master.to_json(orient = 'records')
+    # data = df_master.to_json(orient = 'records')
+    data = []
 
-    return data
+    for i in range(len(df_master)):
+        row = {
+            'File Updated Date by Logistic Team': str(df_master.loc[i, "File Updated Date by Logistic Team"]),
+            'Record Updated Date by Logistic Team': str(df_master.loc[i, "Record Updated Date by Logistic Team"]),
+            'MBL NO': df_master.loc[i, "MBL NO"],
+            'VESSEL': df_master.loc[i, "VESSEL"],
+            'Carrier': df_master.loc[i, "Carrier"],
+            'POL': df_master.loc[i, "POL"],
+            'ETD ': str(df_master.loc[i, "ETD "]),
+            'ETA to CMB': str(df_master.loc[i, "ETA to CMB"]),
+            'Need Registering Yes/No?': df_master.loc[i, "Need Registering Yes/No?"],
+            'Tracking Common MBL ': df_master.loc[i, "Tracking Common MBL "],
+            'Refered CN no': df_master.loc[i, "Refered CN no"],
+            'MMSI': df_master.loc[i, "MMSI"],
+            'Voyage': df_master.loc[i, "Voyage"],
+            'HBL': df_master.loc[i, "HBL"],
+            'Shipment Type': df_master.loc[i, "Shipment Type"]
+        }
+
+        data.append(row)
+
+    return json.dumps(data)
 
 
 def update(params, FILE_PATH):

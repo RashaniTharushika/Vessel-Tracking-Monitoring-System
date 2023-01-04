@@ -15,9 +15,10 @@ const Page4 = () => {
             plant
         }).then(res => {
             if (res.data.status === "Success") {
-                setVesselData(res.data.data)
+                setVesselData(JSON.parse(res.data.data.replace(/\bNaN\b/g, "null")))
             } else {
                 alert("Failed")
+                console.log(res)
             }
         });
     };
@@ -86,11 +87,11 @@ const Page4 = () => {
                 </thead>
                 <tbody>
                     {
-                        getVesselData.members?.map((element, id) => (
+                        getVesselData.map((element, id) => (
 
                                 <>
-                                <tr>
-                                    <th scope='row'>{id + 1}</th>
+                                <tr class="table-light">
+                                    {/*<th scope='row'>{id + 1}</th>*/}
                                     <td>{element.File}</td>
                                     <td>{element.Record}</td>
                                     <td>{element.MBL}</td>

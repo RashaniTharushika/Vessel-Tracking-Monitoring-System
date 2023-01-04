@@ -106,7 +106,7 @@ def get_view_data():
         'status': "Success",
         'data': data
     }
-    return jsonify(response)
+    return response
 
 
 @app.route("/edit", methods=['POST'])
