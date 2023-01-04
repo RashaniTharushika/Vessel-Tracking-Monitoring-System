@@ -37,9 +37,9 @@ const Login = () => {
         } else if (input.email === 'masactive@gmail.com' && input.password === 'Active@1') {
             localStorage.setItem('plant', 'ACTIVE')
         } else if (input.email === 'bodyline@gmail.com' && input.password === 'Bodyline@1') {
-            localStorage.setItem('plant', 'Bodyline')
+            localStorage.setItem('plant', 'BODYLINE')
         } else if (input.email === 'maskreeda@gmail.com' && input.password === 'Kreeda@1') {
-            localStorage.setItem('plant', 'Kreeda')
+            localStorage.setItem('plant', 'KREEDA')
         } else {
             return seterrorMessage('Invalid email or password')
         }

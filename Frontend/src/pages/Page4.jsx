@@ -26,6 +26,19 @@ const Page4 = () => {
         console.log(getVesselData)
     }, [])
 
+    // TODO: Need to modify code
+    const registerHandler = (e) => {
+        axios.post('http://localhost:5000/register', {
+            plant
+        }).then(res => {
+            if (res.data.status === "Success") {
+                alert(res.data.no_of_regs + " new vessels have been registered ! \n" + res.data.cost + " credits reduced")
+            } else {
+                alert("Failed")
+            }
+        });
+    };
+
     return (<>
         <div className="main-content">
             <Navbar/>
@@ -36,7 +49,10 @@ const Page4 = () => {
                         Input Vessel Details
                     </button>
                 </Link>
-                <NavLink to="/#" className='btn4r bg2'>Register</NavLink>
+                {/*<NavLink to="/#" className='btn4r bg2'>Register</NavLink>*/}
+                <button id="btnRegister" onClick={registerHandler} className='btn4r bg2' type="submit">
+                    Register
+                </button>
                 <br/><br/>
 
 

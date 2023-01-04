@@ -8,7 +8,7 @@ from credit_balance import credit_balance
 from registering import registering
 from vfc import vfc
 from single_vessel_positioning import single_vessel_position
-from helper import input_form_data, get_view
+from helper import input_form_data, get_view, update, delete
 
 load_dotenv()
 
@@ -105,6 +105,28 @@ def get_view_data():
     response = {
         'status': "Success",
         'data': data
+    }
+    return jsonify(response)
+
+
+@app.route("/edit", methods=['POST'])
+def edit_data():
+    input_params = request.get_json()
+    status = update(input_params, _FILE_PATH)
+
+    response = {
+        'status': status
+    }
+    return jsonify(response)
+
+
+@app.route("/delete", methods=['POST'])
+def delete_data():
+    input_params = request.get_json()
+    status = delete(input_params, _FILE_PATH)
+
+    response = {
+        'status': status
     }
     return jsonify(response)
 
