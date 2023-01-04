@@ -3,7 +3,7 @@ import "../App.css";
 import Navbar from "../components/Header";
 
 const PowerBI = () => {
-
+    <Navbar />
     const plant = localStorage.getItem('plant')
 
     if (plant === "INTIMATES") {

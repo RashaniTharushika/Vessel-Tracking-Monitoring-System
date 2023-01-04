@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Header";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 const Dashboard = () => {
     const history = useHistory();
@@ -36,18 +37,18 @@ const Dashboard = () => {
         });
     };
 
-    // TODO: Need to modify code
-    const registerHandler = (e) => {
-        axios.post('http://localhost:5000/register', {
-            plant
-        }).then(res => {
-            if (res.data.status === "Success") {
-                alert(res.data.no_of_regs + " new vessels have been registered ! \n" + res.data.cost + " credits reduced")
-            } else {
-                alert("Failed")
-            }
-        });
-    };
+    // // TODO: Need to modify code
+    // const registerHandler = (e) => {
+    //     axios.post('http://localhost:5000/register', {
+    //         plant
+    //     }).then(res => {
+    //         if (res.data.status === "Success") {
+    //             alert(res.data.no_of_regs + " new vessels have been registered ! \n" + res.data.cost + " credits reduced")
+    //         } else {
+    //             alert("Failed")
+    //         }
+    //     });
+    // };
 
     // TODO: Need to modify code
     const vfcHandler = (e) => {
@@ -105,9 +106,10 @@ const Dashboard = () => {
                     Input Vessel Details
                 </button> */}
                 <br /><br />
-                <button id="btnRegister" onClick={registerHandler} className='btn bg2' type="submit">
+                {/* <button id="btnRegister" onClick={registerHandler} className='btn bg2' type="submit">
                     Vessel Registration
-                </button>
+                </button> */}
+                <NavLink to="/page4" className='btn bg2'>Register</NavLink>
                 <br /><br />
                 <button id="btnBalance" onClick={balanceHandler} className='btn bg2' type="button">
                     Credit Balance
