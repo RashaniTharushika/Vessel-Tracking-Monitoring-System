@@ -9,7 +9,7 @@ import axios from "axios";
 const Page4 = () => {
 
     const plant = localStorage.getItem('plant')
-    const [getVesselData, setVesselData] = useState([])
+    const [getVesselData, setVesselData] = useState([{}])
     const getData = async (e) => {
         await axios.post('http://localhost:5000/view', {
             plant
@@ -28,7 +28,7 @@ const Page4 = () => {
     }, [])
 
     //Delete part
-    
+
 
     // TODO: Need to modify code
     const registerHandler = (e) => {
@@ -43,6 +43,7 @@ const Page4 = () => {
         });
     };
 
+    console.log(getVesselData)
     return (<>
         <div className="main-content">
             <Navbar />
@@ -85,8 +86,8 @@ const Page4 = () => {
                 </thead>
                 <tbody>
                     {
-                        getVesselData.map((element, id) => {
-                            return(
+                        getVesselData.members?.map((element, id) => (
+
                                 <>
                                 <tr>
                                     <th scope='row'>{id + 1}</th>
@@ -106,12 +107,12 @@ const Page4 = () => {
                                     <td>{element.HBL}</td>
                                     <td>{element.Shipment}</td>
                                     <td className="d-flex justify-content-between">
-                                    
+
                                 </td>
                                     </tr>
                                     </>
                             )
-                        })
+                        )
                     }
                 </tbody>
             </table>
