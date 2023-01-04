@@ -45,8 +45,8 @@ function Footer() {
       </div>
       <div className="bottom">
         <center>
-          <span className="credit">Created By <a href="#">Rashani</a> | </span>
-          <span className="far fa-copyright"></span><span> 2022 All rights reserved.</span>
+          <span className="credit">Created By <a href="#">##</a> | </span>
+          <span className="far fa-copyright"></span><span> 2023 All rights reserved.</span>
         </center>
       </div>
 
