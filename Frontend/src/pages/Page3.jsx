@@ -79,6 +79,7 @@ const Page3 = () => {
     };
 
     return (<>
+    <div className="main-content1">
     <Navbar />
         <div>
             <h3 className="topic text-center" style={{marginTop: '50px', fontWeight: 'bold'}}>Vessel Tracking &
@@ -300,7 +301,8 @@ const Page3 = () => {
             </div>
             <div className="col-3"></div>
             <Footer />
-        </div>
+            </div>
+            </div>
     </>);
 };
 
