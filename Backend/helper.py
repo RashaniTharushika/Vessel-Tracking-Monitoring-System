@@ -167,7 +167,7 @@ def update(params, FILE_PATH):
 
 def delete(params, FILE_PATH):
     plant = params['plant']
-    hbl = plant['HBL']
+    hbl = params['HBL']
     if plant != 'INTIMATES':
         FILE_PATH = FILE_PATH + "/" + plant
 
@@ -183,6 +183,7 @@ def delete(params, FILE_PATH):
         df_master.reset_index(drop=True, inplace=True)
 
         df_master.to_excel(f'{FILE_PATH}/Master file - Input file/Master File.xlsx', sheet_name='Master File_To be Daily updated', index=False)
+        # df_master.to_excel('test.xlsx', index=False)
 
         return "Success"
     except:
