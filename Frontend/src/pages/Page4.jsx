@@ -76,7 +76,7 @@ const Page4 = () => {
                         <th scope="col">POL</th>
                         <th scope="col">ETD</th>
                         <th scope="col">ETA to CMB</th>
-                        <th scope="col">Need Registering Yes\/No?</th>
+                        <th scope="col">Need Registering Yes/No?</th>
                         <th scope="col">Tracking Common MBL</th>
                         <th scope="col">Refered CN no</th>
                         <th scope="col">MMSI</th>
@@ -92,21 +92,21 @@ const Page4 = () => {
                                 <>
                                 <tr class="table-light">
                                     {/*<th scope='row'>{id + 1}</th>*/}
-                                    <td>{element.File}</td>
-                                    <td>{element.Record}</td>
-                                    <td>{element.MBL}</td>
+                                    <td>{element['File Updated Date by Logistic Team'].split(" ")[0]}</td>
+                                    <td>{element['Record Updated Date by Logistic Team'].split(" ")[0]}</td>
+                                    <td>{element['MBL NO']}</td>
                                     <td>{element.VESSEL}</td>
                                     <td>{element.Carrier}</td>
                                     <td>{element.POL}</td>
-                                    <td>{element.ETD}</td>
-                                    <td>{element.ETA}</td>
-                                    <td>{element.Need}</td>
-                                    <td>{element.Tracking}</td>
-                                    <td>{element.Refered}</td>
+                                    <td>{element['ETD '].split(" ")[0]}</td>
+                                    <td>{element['ETA to CMB'].split(" ")[0]}</td>
+                                    <td>{element['Need Registering Yes/No?']}</td>
+                                    <td>{element['Tracking Common MBL ']}</td>
+                                    <td>{element['Refered CN no']}</td>
                                     <td>{element.MMSI}</td>
                                     <td>{element.Voyage}</td>
                                     <td>{element.HBL}</td>
-                                    <td>{element.Shipment}</td>
+                                    <td>{element['Shipment Type']}</td>
                                     <td className="d-flex justify-content-between">
 
                                 </td>
