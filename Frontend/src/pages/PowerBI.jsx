@@ -16,7 +16,7 @@ const PowerBI = () => {
     if (plant === "ACTIVE") {
         return (
             <>
-                <iframe title="Logistic Vessel Tracking and Monitoring System- MAS Active" width="1700" height="700" src="https://app.powerbi.com/reportEmbed?reportId=c673bf2c-7645-4467-9593-99f62aa2962d&autoAuth=true&ctid=852c5799-8134-4f15-9d38-eba4296cc76f" frameborder="0" allowFullScreen="true"></iframe>
+                <iframe title="Logistic Vessel Tracking and Monitoring System-MAS ACTIVE" width="1700" height="700" src="https://app.powerbi.com/reportEmbed?reportId=e9f39ece-b2f6-4fdc-918e-6b403826ba0b&autoAuth=true&ctid=852c5799-8134-4f15-9d38-eba4296cc76f" frameborder="0" allowFullScreen="true"></iframe>
             </>);
     }
 
