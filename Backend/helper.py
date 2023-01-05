@@ -94,14 +94,14 @@ def get_view(params, FILE_PATH):
 
     for i in range(len(df_master)):
         row = {
-            'File Updated Date by Logistic Team': str(df_master.loc[i, "File Updated Date by Logistic Team"]),
-            'Record Updated Date by Logistic Team': str(df_master.loc[i, "Record Updated Date by Logistic Team"]),
+            'File Updated Date by Logistic Team': str(df_master.loc[i, "File Updated Date by Logistic Team"]).split(" ")[0],
+            'Record Updated Date by Logistic Team': str(df_master.loc[i, "Record Updated Date by Logistic Team"]).split(" ")[0],
             'MBL NO': df_master.loc[i, "MBL NO"],
             'VESSEL': df_master.loc[i, "VESSEL"],
             'Carrier': df_master.loc[i, "Carrier"],
             'POL': df_master.loc[i, "POL"],
-            'ETD ': str(df_master.loc[i, "ETD "]),
-            'ETA to CMB': str(df_master.loc[i, "ETA to CMB"]),
+            'ETD ': str(df_master.loc[i, "ETD "]).split(" ")[0],
+            'ETA to CMB': str(df_master.loc[i, "ETA to CMB"]).split(" ")[0],
             'Need Registering Yes/No?': df_master.loc[i, "Need Registering Yes/No?"],
             'Tracking Common MBL ': df_master.loc[i, "Tracking Common MBL "],
             'Refered CN no': df_master.loc[i, "Refered CN no"],
