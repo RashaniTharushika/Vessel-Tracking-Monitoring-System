@@ -44,20 +44,20 @@ const Page4 = () => {
         });
     };
 
-    const deleteHandler = (event, param) => {
-
-        axios.post('http://localhost:5000/delete', {
-            plant,
-            HBL: param
-        }).then(res => {
-            if (res.data.status === "Success") {
-                alert("Vessel detail removed")
-                window.location.reload()
-            } else {
-                alert("Failed")
-            }
-        });
-    };
+    // const deleteHandler = (event, param) => {
+    //
+    //     axios.post('http://localhost:5000/delete', {
+    //         plant,
+    //         HBL: param
+    //     }).then(res => {
+    //         if (res.data.status === "Success") {
+    //             alert("Vessel detail removed")
+    //             window.location.reload()
+    //         } else {
+    //             alert("Failed")
+    //         }
+    //     });
+    // };
 
     console.log(getVesselData)
     return (<>
@@ -98,7 +98,7 @@ const Page4 = () => {
                     <th scope="col">Voyage</th>
                     <th scope="col">HBL</th>
                     <th scope="col">Shipment Type</th>
-                    <th scope="col">Action</th>
+                    {/*<th scope="col">Action</th>*/}
                 </tr>
                 </thead>
                 <tbody>
@@ -123,7 +123,7 @@ const Page4 = () => {
                                     <td>{element.Voyage}</td>
                                     <td>{element.HBL}</td>
                                     <td>{element['Shipment Type']}</td>
-                                    <td><button onClick={event => deleteHandler(event, element.HBL)}>Delete</button></td>
+                                    {/*<td><button onClick={event => deleteHandler(event, element.HBL)}>Delete</button></td>*/}
                                     <td className="d-flex justify-content-between">
 
                                     </td>
